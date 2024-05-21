@@ -19,6 +19,8 @@ public class Aluguel {
     private Long id;
     private String nomeLocador;
     private LocalDate dataLocacao;
+    private LocalDate dataDevolucao;
     private Long idLivro;
+    private String status; // ativo, finalizado, atrasado
 
 }

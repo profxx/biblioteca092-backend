@@ -36,7 +36,7 @@ public class AluguelController {
     }
     @PostMapping("/inserir")
     public ResponseEntity<Aluguel> insertNew(@RequestBody Aluguel aluguel){
-        Aluguel aluguelInserido = aluguelService.insertNew(aluguel);
+        Aluguel aluguelInserido = aluguelService.novoAluguel(aluguel);
         return ResponseEntity.ok().body(aluguelInserido);
     }
 
@@ -45,6 +45,13 @@ public class AluguelController {
         Aluguel aluguelAlterado = aluguelService.update(id, aluguel);
         return ResponseEntity.ok().body(aluguelAlterado);
     }
+
+    @PutMapping("/retorna/{id}")
+    public ResponseEntity<Aluguel> encerraAluguel(@PathVariable Long id){
+        return ResponseEntity.ok().body(aluguelService.encerraAluguel(id));
+    }
+
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Boolean> deleteById(@PathVariable Long id){
         Boolean flag = aluguelService.deleteById(id);
